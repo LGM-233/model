@@ -34,7 +34,7 @@ if __name__ == '__main__':
     target = torch.tensor([1, 0, 1, 0], dtype=torch.float32)
 
     # Define the model and loss function
-    model = nn.Linear(num_classes, num_classes)  # 两个线性层和ReLU和Sigmoid激活函数的简单多标签分类模型
+    model = nn.Linear(num_classes, num_classes)  
     loss_fn = AsymmetricLoss()
 
     # Compute the loss
