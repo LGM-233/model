@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 
-class NyAttentioin(torch.nn.Module): #简单注意力机制
+class NyAttentioin(torch.nn.Module): 
     def __init__(self, hidden_size, attensize_size):
         super(NyAttentioin, self).__init__()
 
