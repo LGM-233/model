@@ -7,4 +7,4 @@ Pytorch--2.1.1+cu121
 Python--3.10.10
 
 ## run
-run --main
+Place the files in the same folder.then  run --main
