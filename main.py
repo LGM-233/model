@@ -261,9 +261,9 @@ def train_model(model, train_dloader, val_dloader, optimizer, num_epochs, schedu
 
 if __name__ == '__main__':
     EPOCHS = 20
-    filepath_train = './train_udrequ_shuffle_2048.csv'
+    filepath_train = './train_part_opcode.csv'
 
-    filepath_val = './val_udrequ_shuffle_2048.csv'
+    filepath_val = './val_part_opcode.csv'
     train_data = pd.read_csv(filepath_train)
     val_data = pd.read_csv(filepath_val)
 
