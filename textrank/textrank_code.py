@@ -113,9 +113,9 @@ def abstr_extra(scores):
 
 
 if __name__ == '__main__':
-    filepath_train = 'D:/PycharmProjects/pythonProject/Ming21/只能合约/big-mult/train/train_complie1.csv'
+    filepath_train = './train_complie1.csv' #Training set, cleaned opcode file
     df = get_siminx(filepath_train)
-    df.to_csv('D:/PycharmProjects/pythonProject/Ming21/只能合约/词嵌入训练/train_complie_zy.csv')
+    df.to_csv('./train_complie_zy.csv')
     print(df)
 
 
