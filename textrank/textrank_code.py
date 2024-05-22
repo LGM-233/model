@@ -25,7 +25,7 @@ def get_input(x):
     x_train = torch.cat((x_train, pad))
     batch = int((len_x + padding) / 128)
     x_train_split = x_train.view(batch, 128, 300)
-    out = torch.mean(x_train_split,dim=1)
+    out = torch.mean(x_train_split,dim=1)  #Word vectors are converted to sentence vectors
     # out = att(x_train_split)
 
     out = out.numpy()
