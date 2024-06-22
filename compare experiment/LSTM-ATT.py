@@ -11,7 +11,6 @@ from sklearn.metrics import accuracy_score,hamming_loss,recall_score
 from torch.optim.lr_scheduler import StepLR
 from xlnet_hierarchical_attn.Bilstm import BiLSTM
 from xlnet_hierarchical_attn.LSTMmodel import LSTM
-# from bilstm_att例子 import Attention
 from PosiEnc import PositionalEncoding
 from Focal_loss import FocalLoss
 from ASL_loss import AsymmetricLoss
