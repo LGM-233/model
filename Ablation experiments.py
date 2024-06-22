@@ -157,8 +157,8 @@ def validate_step(model, inps, labs):
         metric = metric_hm(labs.cpu().numpy(), pred.cpu().numpy())  
         # recall = recall_sc(pred.cpu().numpy(), labs.cpu().numpy())
         tp = np.sum((pred.cpu().numpy() == 1) & (labs.cpu().numpy() == 1))
-        fn = np.sum((pred.cpu().numpy() == 1) & (labs.cpu().numpy() == 0))
-        fp = np.sum((pred.cpu().numpy() == 0) & (labs.cpu().numpy() == 1))
+        fn = np.sum((pred.cpu().numpy() == 0) & (labs.cpu().numpy() == 1))
+        fp = np.sum((pred.cpu().numpy() == 1) & (labs.cpu().numpy() == 0))
     return loss.item(), metric.item(), tp, fn, fp
 
 def train_model(model, train_dloader, val_dloader, optimizer, num_epochs, scheduler_1r, init_epoch=0,  print_every=600):
