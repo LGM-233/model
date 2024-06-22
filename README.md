@@ -9,7 +9,9 @@ Python--3.10.10
 https://huggingface.co/datasets/mwritescode/slither-audited-smart-contracts
 
 ## data process
-You can use the Remix tool to convert the opcode, or use the method in this article, after comparison, the result is the same as remix.
+If you want to work with the dataset yourself.First,Open the process folder to convert the opcode.Then, open the textrank folder to crop the operation。
 
 ## run
-Place the files in the same folder.then  run --main
+Training can be done directly.Place the files in the same folder.then  run --main
+
+
