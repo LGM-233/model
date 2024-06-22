@@ -11,7 +11,7 @@ from res_selfatt import NyAttentioin
 from gensim.models import KeyedVectors
 wo2vec = KeyedVectors.load_word2vec_format("./smart300_6.bin") #your word2vec.bin model
 
-def get_input(x):
+def get_input(x):  #data split
     x_train = []
     x = x.split(',')
     len_x = len(x)
@@ -32,9 +32,9 @@ def get_input(x):
     return out
 
 
-def get_siminx(filepath):
+def get_siminx(filepath):  #textrank
     df = pd.read_csv(filepath)
-    df['ops_abs'] = 0
+    df['ops_abs'] = 0    #Deposit a new column
     # print(similarity_matrix)
     err_index = []
     for i in range(len(df['ops_new'])):
@@ -71,7 +71,7 @@ def get_siminx(filepath):
             df.loc[i,'ops_abs'] = result
     return df
 
-def file_abstr(index,doc):  #
+def file_abstr(index,doc):  #Data slicing
     doc_list = doc.split(',')
     # split
     step = 128
