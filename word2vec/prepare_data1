@@ -1,0 +1,14 @@
+def read_data(filepath):
+    df = pd.read_csv(filepath)   #Read the opcode text
+    wenben = []
+    label = []
+    for i in range(len(df['ops'])):
+        str = df.loc[i, 'ops']
+        str = str.split(',')
+        str = ' '.join(str)
+        wenben.append(str)
+        # Remove the square brackets at each end of the string and separate them with spaces
+        split_data = df.loc[i, 'label'][1:-1].split(' ')
+        # Convert string numbers to integers
+        int_array = [int(num) for num in split_data]
+        label.append(int_array)
