@@ -57,7 +57,7 @@ class word2vec_add_biLSTM(nn.Module):
     def forward(self,x):
         # join position
 
-        x_res = x.view(1, -1, 300) #[num_seg, 512, 768] => [1, num_seg*512, 768]
+        x_res = x.view(1, -1, 300) 
         position_res = PositionalEncoding(max_num_seg=100, d_model=300, num_seg=2048, seg_len=2048).to(device)
         x_in = position_res(x_res)
 
@@ -183,8 +183,8 @@ def train_model(model, train_dloader, val_dloader, optimizer, num_epochs, schedu
         mar_F1 = (2.0 * mar_P * mar_R) / (mar_P + mar_R)
         record = (epoch, loss_sum / step, metric_sum / (step+1), val_loss_sum / (val_step+1), val_metric_sum / (val_step+1), mar_R, mar_P, mar_F1)
 
-        log_file.write(
-            f'Epoch {epoch}, Loss: {val_loss_sum / (val_step + 1) :.3f}, Hanming {metric_name_hm}: {val_metric_sum / (val_step + 1):.3f},mar_R:{mar_R:.3f},mar_P:{mar_P:.3f},mar_F1{mar_F1:.3f}\n')
+        # log_file.write(
+        #     f'Epoch {epoch}, Loss: {val_loss_sum / (val_step + 1) :.3f}, Hanming {metric_name_hm}: {val_metric_sum / (val_step + 1):.3f},mar_R:{mar_R:.3f},mar_P:{mar_P:.3f},mar_F1{mar_F1:.3f}\n')
 
         # print log
         print('EPOCH = {} loss: {:.3f}, {}: {:.3f}, val_loss: {:.3f}, val_{}: {:.3f}, mar-R: {:.3f}, mar-P: {:.3f}, mar-F1: {:.3f}'.format(
@@ -218,7 +218,7 @@ if __name__ == '__main__':
                                                      lr_lambda=lambda epoch: 0.1 if epoch > EPOCHS * 0.8 else 1)
     
     scheduler = StepLR(optimizer, step_size=1, gamma=0.8)
-    log_file = open(log_dir, 'w')
+
     train_model(model, train_dloader=train_data, val_dloader=val_data, optimizer=optimizer, num_epochs=EPOCHS, scheduler_1r=scheduler)
-    log_file.close()
+
 
